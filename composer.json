@@ -1,0 +1,17 @@
+{
+  "type": "symfony-bundle",
+  "name": "amacrobert/symfony-staticgen",
+  "autoload": {
+    "psr-4": {
+      "Amacrobert\\SymfonyStaticGen\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Amacrobert\\SymfonyStaticGen\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "symfony/filesystem": ">=6.1"
+  }
+}

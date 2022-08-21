@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service
+            id="staticgen.build_command"
+            class="Amacrobert\SymfonyStaticGen\Command\SsgBuildCommand"
+            public="false"
+            autoconfigure="true"
+        >
+            <argument type="service" id="static_gen.builder" />
+        </service>
+
+        <service
+            id="staticgen.builder"
+            class="Amacrobert\SymfonyStaticGen\Service\StaticGen"
+            public="false"
+            autoconfigure="true"
+        >
+            <argument type="service" id="router.default" />
+            <argument type="service" id="service_container" />
+            <argument type="service" id="filesystem" />
+        </service>
+
+        <service
+            id="statiggen.twig.extension.routing"
+            class="Amacrobert\SymfonyStaticGen\Service\StaticRoutingExtension"
+        >
+            <argument type="service" id="@.inner" />
+            <argument type="string">/Users/andrew/projects/ssg-dev/build</argument>
+        </service>
+    </services>
+</container>
